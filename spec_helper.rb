@@ -17,4 +17,8 @@ RSpec.configure do |c|
   c.alias_example_to :meeting
   c.alias_example_to :stakeholder
 
+  c.before(:each) do |example|
+    sleep(2)
+    expect(TeamMate.new(example.description)).to be_onboard, "#{example.description} is not onboard 🙍🏼‍♀️"
+  end
 end
